@@ -4,15 +4,23 @@ body{
     $header_bg: transparent;
     $header_color: white;
     $menu_color: rgb(100,100,100);
+    $theme-color: #14505C;
 
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     
-    
-    
+    button{
+        border: none;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    button:hover{
+        transform: scale(1.2);
+    }
+
     #header{
-        position: absolute;
+        position: fixed;
         width: 100vw;
         max-height: auto;
         min-height: 58px;
@@ -40,20 +48,31 @@ body{
             right: 0px;
             visibility: hidden;
         }
+    }
 
-        #menu{
-            position: relative;
-            float: right;
-            right: 0px;
-            width: 200px;
-            height: 100vh;
-            background-color: $header_color;
-
-        }
+    #menu{
+        position: fixed;
+        right: 0px;
+        min-width: 200px;
+        max-width: 400px;
+        height: 100vh;
+        background-color: $header_color;
+        box-shadow: -5px 0px 15px rgb(46, 46, 46);
+        padding: 30px 20px;
+        visibility: hidden;
 
         .menu-item{
             position: relative;
             color: $menu_color;
+            width: 100%;
+            margin-bottom: 2rem;
+
+            button{
+                position: relative;
+                float: right;
+                background: $header_bg;
+            }
+            
         }
     }
 
@@ -62,10 +81,55 @@ body{
         height: 100vh;
         background-image: url(../img/home1.jpg);
         background-repeat: no-repeat;   
-        background-position: center center;
+        background-position: center right;
         background-attachment: fixed;
         background-size: cover;
-        
+        color: $header_color;
+
+        #content-title{
+            max-width: 600px;
+            padding-left: 10%;
+            padding-top: 5%;
+
+            h5{
+                font-family: 'Open Sans', sans-serif;
+            }
+            h1{
+                font-family: 'Raleway', sans-serif;
+                font-size: 4rem;
+                font-weight: 100;
+                margin-top: 0;
+
+                span{
+                    font-weight: 600;
+                }
+            }
+            button{
+                padding: 0.6rem 0.9rem;
+                border: none;
+                background-color: $theme-color;
+                color: $header_color;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            #social-media-links{
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                margin-top: 2rem;
+                //background: red;
+                
+                a{
+                    color: $header_color;
+                }
+                .social-media-icon{
+                    transition: 0.3s;
+                }
+                .social-media-icon:hover{
+                    transform: translateY(-50%);
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: 600px) {
@@ -75,7 +139,8 @@ body{
         #menu-icon{
             visibility: visible !important;
             right: 2.5vw !important;
-            cursor: pointer;
+            color: $header_color;
+            background: $header_bg;
         }
       }
 }

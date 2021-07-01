@@ -5,8 +5,20 @@ body {
           box-sizing: border-box;
 }
 
+body button {
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 body #header {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   max-height: auto;
   min-height: 58px;
@@ -49,18 +61,30 @@ body #header #menu-icon {
   visibility: hidden;
 }
 
-body #header #menu {
-  position: relative;
-  float: right;
+body #menu {
+  position: fixed;
   right: 0px;
-  width: 200px;
+  min-width: 200px;
+  max-width: 400px;
   height: 100vh;
   background-color: white;
+  -webkit-box-shadow: -5px 0px 15px #2e2e2e;
+          box-shadow: -5px 0px 15px #2e2e2e;
+  padding: 30px 20px;
+  visibility: hidden;
 }
 
-body #header .menu-item {
+body #menu .menu-item {
   position: relative;
   color: #646464;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+body #menu .menu-item button {
+  position: relative;
+  float: right;
+  background: transparent;
 }
 
 body #content {
@@ -68,9 +92,65 @@ body #content {
   height: 100vh;
   background-image: url(../img/home1.jpg);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center right;
   background-attachment: fixed;
   background-size: cover;
+  color: white;
+}
+
+body #content #content-title {
+  max-width: 600px;
+  padding-left: 10%;
+  padding-top: 5%;
+}
+
+body #content #content-title h5 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body #content #content-title h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 4rem;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+body #content #content-title h1 span {
+  font-weight: 600;
+}
+
+body #content #content-title button {
+  padding: 0.6rem 0.9rem;
+  border: none;
+  background-color: #14505C;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body #content #content-title #social-media-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+body #content #content-title #social-media-links a {
+  color: white;
+}
+
+body #content #content-title #social-media-links .social-media-icon {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body #content #content-title #social-media-links .social-media-icon:hover {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,7 +160,8 @@ body #content {
   body #menu-icon {
     visibility: visible !important;
     right: 2.5vw !important;
-    cursor: pointer;
+    color: white;
+    background: transparent;
   }
 }
 /*# sourceMappingURL=style.css.map */
