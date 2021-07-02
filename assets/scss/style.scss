@@ -81,23 +81,25 @@ body{
         height: 100vh;
         background-image: url(../img/home1.jpg);
         background-repeat: no-repeat;   
-        background-position: center right;
+        background-position: right 15% bottom 50%;;
         background-attachment: fixed;
         background-size: cover;
         color: $header_color;
 
         #content-title{
-            max-width: 600px;
+            //max-width: 600px;
+            position: relative;
             padding-left: 10%;
-            padding-top: 5%;
+            padding-top: 10%;
 
-            h5{
+            p{
                 font-family: 'Open Sans', sans-serif;
+                font-size: 1rem;
             }
             h1{
                 font-family: 'Raleway', sans-serif;
                 font-size: 4rem;
-                font-weight: 100;
+                font-weight: 10;
                 margin-top: 0;
 
                 span{
@@ -128,6 +130,36 @@ body{
                 .social-media-icon:hover{
                     transform: translateY(-50%);
                 }
+            }  
+        }
+        #content-card{
+            width:300px;
+            height:120px;
+            background:$theme-color;
+            position: absolute;
+            bottom: 5%;
+            right: 10%;
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+
+            .card-title{
+                flex-grow: 1;
+                flex-basis: 0;
+                font-size: 1rem;
+                line-height: 1.25rem;
+
+                span{
+                    font-weight: bold;
+                }
+            }
+            .card-content{
+                flex-grow: 1.5;
+                flex-basis:0;
+                background-image: url(../img/home2.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         }
     }

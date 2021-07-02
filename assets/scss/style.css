@@ -92,26 +92,27 @@ body #content {
   height: 100vh;
   background-image: url(../img/home1.jpg);
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: right 15% bottom 50%;
   background-attachment: fixed;
   background-size: cover;
   color: white;
 }
 
 body #content #content-title {
-  max-width: 600px;
+  position: relative;
   padding-left: 10%;
-  padding-top: 5%;
+  padding-top: 10%;
 }
 
-body #content #content-title h5 {
+body #content #content-title p {
   font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
 }
 
 body #content #content-title h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 4rem;
-  font-weight: 100;
+  font-weight: 10;
   margin-top: 0;
 }
 
@@ -151,6 +152,49 @@ body #content #content-title #social-media-links .social-media-icon {
 body #content #content-title #social-media-links .social-media-icon:hover {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+body #content #content-card {
+  width: 300px;
+  height: 120px;
+  background: #14505C;
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 15px;
+}
+
+body #content #content-card .card-title {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+body #content #content-card .card-title span {
+  font-weight: bold;
+}
+
+body #content #content-card .card-content {
+  -webkit-box-flex: 1.5;
+      -ms-flex-positive: 1.5;
+          flex-grow: 1.5;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  background-image: url(../img/home2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media only screen and (max-width: 600px) {
