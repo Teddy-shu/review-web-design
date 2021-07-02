@@ -1,6 +1,35 @@
+@mixin desktop{
+    @media(max-width:1024px){
+      @content;
+    }
+  }
+@mixin pad{
+    @media(max-width:768px){
+      @content;
+    }
+  }
+  @mixin mobile{
+    @media(max-width:540px){
+      @content;
+    }
+  }
+
 body{
     $body_padding: 2.5vw;
+
+    $mobile-wid: 375px;
+    $tablet-wid: 768px;
+    $web-wid: 1024px;
     
+    $icon-size-large: 24px;
+    $icon-size-midimn: 18px;
+    $icon-size-small: 12px;
+
+    $font-size-title-large: 4rem;
+    $font-size-title-midimn: 3rem;
+    $font-size-title-small: 2rem;
+
+
     $header_bg: transparent;
     $header_color: white;
     $menu_color: rgb(100,100,100);
@@ -41,12 +70,22 @@ body{
             display: flex;
             flex-direction: row;
             gap: 3vw;
+            @include mobile{
+                visibility: hidden;
+            }
         }
 
         #menu-icon{
             position: absolute;
             right: 0px;
             visibility: hidden;
+            @include mobile{
+                visibility: visible;
+                right: 2.5vw;
+                color: $header_color;
+                background: $header_bg;
+                font-size: $icon-size-large;
+            }
         }
     }
 
@@ -81,16 +120,17 @@ body{
         height: 100vh;
         background-image: url(../img/home1.jpg);
         background-repeat: no-repeat;   
-        background-position: right 15% bottom 50%;;
-        background-attachment: fixed;
+        background-position: right 15% top 10%;
+        //background-attachment: fixed;
         background-size: cover;
         color: $header_color;
 
         #content-title{
             //max-width: 600px;
             position: relative;
-            padding-left: 10%;
-            padding-top: 10%;
+            padding-left: 10vw;
+            padding-top: 20vh;
+           
 
             p{
                 font-family: 'Open Sans', sans-serif;
@@ -98,9 +138,15 @@ body{
             }
             h1{
                 font-family: 'Raleway', sans-serif;
-                font-size: 4rem;
                 font-weight: 10;
                 margin-top: 0;
+                font-size:  $font-size-title-large;
+                @include pad{
+                    font-size:  $font-size-title-midimn;
+                }
+                @include mobile{
+                    font-size:  $font-size-title-small;
+                }
 
                 span{
                     font-weight: 600;
@@ -119,7 +165,9 @@ body{
                 flex-direction: row;
                 gap: 1rem;
                 margin-top: 2rem;
-                //background: red;
+                @include mobile{
+                    flex-direction: column;
+                }
                 
                 a{
                     color: $header_color;
@@ -142,12 +190,19 @@ body{
             display: flex;
             flex-direction: row;
             padding: 15px;
+            font-size: 1.2rem;
+            line-height: 1.25rem;
+            @include pad{
+                transform: scale(0.8);
+                right: -30px;
+            }
+            @include mobile{
+                transform: scale(0.75);
+            }
 
             .card-title{
                 flex-grow: 1;
                 flex-basis: 0;
-                font-size: 1rem;
-                line-height: 1.25rem;
 
                 span{
                     font-weight: bold;
@@ -163,16 +218,4 @@ body{
             }
         }
     }
-
-    @media only screen and (max-width: 600px) {
-        #nav {
-          visibility: hidden;
-        }
-        #menu-icon{
-            visibility: visible !important;
-            right: 2.5vw !important;
-            color: $header_color;
-            background: $header_bg;
-        }
-      }
 }

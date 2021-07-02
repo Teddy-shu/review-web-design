@@ -55,10 +55,26 @@ body #header #nav {
   gap: 3vw;
 }
 
+@media (max-width: 540px) {
+  body #header #nav {
+    visibility: hidden;
+  }
+}
+
 body #header #menu-icon {
   position: absolute;
   right: 0px;
   visibility: hidden;
+}
+
+@media (max-width: 540px) {
+  body #header #menu-icon {
+    visibility: visible;
+    right: 2.5vw;
+    color: white;
+    background: transparent;
+    font-size: 24px;
+  }
 }
 
 body #menu {
@@ -92,16 +108,15 @@ body #content {
   height: 100vh;
   background-image: url(../img/home1.jpg);
   background-repeat: no-repeat;
-  background-position: right 15% bottom 50%;
-  background-attachment: fixed;
+  background-position: right 15% top 10%;
   background-size: cover;
   color: white;
 }
 
 body #content #content-title {
   position: relative;
-  padding-left: 10%;
-  padding-top: 10%;
+  padding-left: 10vw;
+  padding-top: 20vh;
 }
 
 body #content #content-title p {
@@ -111,9 +126,21 @@ body #content #content-title p {
 
 body #content #content-title h1 {
   font-family: 'Raleway', sans-serif;
-  font-size: 4rem;
   font-weight: 10;
   margin-top: 0;
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  body #content #content-title h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 540px) {
+  body #content #content-title h1 {
+    font-size: 2rem;
+  }
 }
 
 body #content #content-title h1 span {
@@ -138,6 +165,15 @@ body #content #content-title #social-media-links {
           flex-direction: row;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+@media (max-width: 540px) {
+  body #content #content-title #social-media-links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 body #content #content-title #social-media-links a {
@@ -169,6 +205,23 @@ body #content #content-card {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 15px;
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  body #content #content-card {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    right: -30px;
+  }
+}
+
+@media (max-width: 540px) {
+  body #content #content-card {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
 }
 
 body #content #content-card .card-title {
@@ -177,8 +230,6 @@ body #content #content-card .card-title {
           flex-grow: 1;
   -ms-flex-preferred-size: 0;
       flex-basis: 0;
-  font-size: 1rem;
-  line-height: 1.25rem;
 }
 
 body #content #content-card .card-title span {
@@ -195,17 +246,5 @@ body #content #content-card .card-content {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-@media only screen and (max-width: 600px) {
-  body #nav {
-    visibility: hidden;
-  }
-  body #menu-icon {
-    visibility: visible !important;
-    right: 2.5vw !important;
-    color: white;
-    background: transparent;
-  }
 }
 /*# sourceMappingURL=style.css.map */
