@@ -14,6 +14,16 @@
     }
   }
 
+  @mixin fullscreen{
+      width: 100vw;
+      height: 100vh;
+      max-width:100%;
+  }
+
+*{
+    box-sizing: border-box;
+}
+
 body{
     $body_padding: 2.5vw;
 
@@ -29,6 +39,8 @@ body{
     $font-size-title-midimn: 3rem;
     $font-size-title-small: 2rem;
 
+    $font-family-title: 'Raleway', sans-serif;
+    $font-family-content: 'Open Sans', sans-serif;
 
     $header_bg: transparent;
     $header_color: white;
@@ -47,7 +59,17 @@ body{
     button:hover{
         transform: scale(1.2);
     }
+    @mixin button-main {
+        padding: 0.6rem 0.9rem;
+        border: none;
+        background-color: $theme-color;
+        color: $header_color;
+        font-family: $font-family-content;
+        font-size: $icon-size-midimn;
+        margin-top: 1rem;
+      }
 
+    //---style header---
     #header{
         position: fixed;
         width: 100vw;
@@ -88,7 +110,7 @@ body{
             }
         }
     }
-
+    //---style menu---
     #menu{
         position: fixed;
         right: 0px;
@@ -114,10 +136,9 @@ body{
             
         }
     }
-
+    //---style content---
     #content{
-        width: 100vw;
-        height: 100vh;
+        @include fullscreen();
         background-image: url(../img/home1.jpg);
         background-repeat: no-repeat;   
         background-position: right 15% top 10%;
@@ -126,18 +147,19 @@ body{
         color: $header_color;
 
         #content-title{
-            //max-width: 600px;
-            position: relative;
-            padding-left: 10vw;
-            padding-top: 20vh;
-           
+            position: absolute;
+            width:80%;
+            height: 80%;
+            right:10%;
+            bottom:5%;
+            //transform: translate(10%,10%);
 
             p{
-                font-family: 'Open Sans', sans-serif;
+                font-family: $font-family-content;
                 font-size: 1rem;
             }
             h1{
-                font-family: 'Raleway', sans-serif;
+                font-family: $font-family-title;
                 font-weight: 10;
                 margin-top: 0;
                 font-size:  $font-size-title-large;
@@ -153,18 +175,17 @@ body{
                 }
             }
             button{
-                padding: 0.6rem 0.9rem;
-                border: none;
-                background-color: $theme-color;
-                color: $header_color;
-                font-family: 'Open Sans', sans-serif;
+                @include button-main();
             }
 
             #social-media-links{
+                position: absolute;
+                bottom: 0;
+                left: 0;
                 display: flex;
                 flex-direction: row;
                 gap: 1rem;
-                margin-top: 2rem;
+                
                 @include mobile{
                     flex-direction: column;
                 }
@@ -178,43 +199,92 @@ body{
                 .social-media-icon:hover{
                     transform: translateY(-50%);
                 }
-            }  
+            }
+            #content-card{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                background:$theme-color;
+                width: calc(max(20vw, 20vh));
+                height: calc(max(10vw, 10vh));
+                padding: 15px;
+                font-size: 1rem;
+                @include mobile{
+                    font-size: 0.75rem;
+                }
+    
+                .card-title{
+                    flex-grow: 1;
+                    flex-basis: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    span{
+                        font-weight: bold;
+                    }
+                }
+                .card-content{
+                    flex-grow: 1.25;
+                    flex-basis:0;
+                    background-image: url(../img/home2.jpg);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            } 
         }
-        #content-card{
-            width:300px;
-            height:120px;
-            background:$theme-color;
-            position: absolute;
-            bottom: 5%;
-            right: 10%;
-            display: flex;
-            flex-direction: row;
-            padding: 15px;
-            font-size: 1.2rem;
-            line-height: 1.25rem;
+    }
+    //---style about---
+    #about{
+        @include fullscreen();
+        position: relative;
+        padding: 0 10vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 3vw;
+        @include pad{
+            flex-direction: column;
+            gap: 5vh;
+        }
+
+        #section-about{
+            color: $theme-color;
+            button{
+                @include button-main();
+            }
             @include pad{
-                transform: scale(0.8);
-                right: -30px;
+                text-align: center;
             }
-            @include mobile{
-                transform: scale(0.75);
-            }
+        }
+        #img-about{
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            gap: 1.5vw;
 
-            .card-title{
-                flex-grow: 1;
-                flex-basis: 0;
+            #img-about-1{
+                width: 20vw;
+                height: auto;
 
-                span{
-                    font-weight: bold;
+                @include pad{
+                    width: 40vw;
+                    height: auto;
                 }
             }
-            .card-content{
-                flex-grow: 1.5;
-                flex-basis:0;
-                background-image: url(../img/home2.jpg);
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
+            #img-about-2{
+                width: 25vw;
+                height: auto;
+                
+                @include pad{
+                    width: 50vw;
+                    height: auto;
+                }
             }
         }
     }
